@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Megaprompt"
+  short_description: "Author exact-count UI image generation prompts"
+  default_prompt: "Use $image-megaprompt to write an exact-count UI image generation prompt."
