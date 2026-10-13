@@ -21,6 +21,20 @@ what is in front of them. So every prompt written with this skill is a single
 self-contained document that carries its own style law, its own copy, and its
 own delivery contract, and can be pasted into a fresh chat with no history.
 
+## Visual style guide handoff
+
+If a current visual style guide is supplied, read its active target, decisions,
+evidence, and permitted variation before filling this envelope. A compatible
+`visual-style-guide` skill can check newly relevant parameters when the medium,
+theme or subject changes. Map active rules and tests into `style_freeze` and
+the existing named `locked_*` fields, and applicable exclusions into `negatives`.
+Keep the evidence record local. Expose unresolved or proposed decisions before
+calling a new result on brand. Preserve this installed envelope, requested
+architecture and exact-count delivery contract. Do not add keys from a different
+version of a companion skill. An approved multi-hue palette is not reduced to
+one hue by the historical ONE accent default; semantic action accents and
+material reflections can have different roles.
+
 ## The envelope (all keys, this order)
 
 ```json
@@ -34,10 +48,11 @@ own delivery contract, and can be pasted into a fresh chat with no history.
   "scope_lock": ["static mockup only, no browser chrome, device frame, cursor or hands", "execute the given spec — never reinvent the information architecture", "verbatim microcopy where named, real spell-checked English"],
   "style_freeze": "one fully specified style: palette, type, radii, the ONE accent and its budget",
   "style_freeze_swap_B": "the alternate style, applied only on 'style B N'",
-  "section_spec": "the content in the given order — fixed, never reordered by the model. One entry per slot, each naming its own object, layout and hierarchy",
+  "constants": "the shared laws distilled to about 1,000 characters; prepended verbatim to every per-option image call (rule 16)",
+  "section_spec": "the content in the given order — fixed, never reordered by the model. One entry per slot, each naming its own object, layout and hierarchy, plus a per_image_prompt line: the image call is constants + visual + fixed copy + scene, concatenated verbatim, never summarised",
   "sample_data": "every string the image will render, written out verbatim",
   "negatives": ["what always creeps in: timelines, metaphor themes, dark mode, donut charts, emoji, lorem ipsum, misspellings, watermarks"],
-  "kickoff": "the exact first message: render everything now, no pauses, no questions"
+  "kickoff": "the exact chat message to TYPE alongside the paste (rule 16): the count, one image-generation call per option in order, verbatim per_image_prompt, no grid, no pauses, no questions"
 }
 ```
 
@@ -164,6 +179,55 @@ mechanical, slot by slot, before the prompt goes out — not a read-through.
 
 `sample_data`, per-slot exact-copy lists and loose prose all competing produces
 drift. Pick one home for every string.
+
+### 16. An attachment is context, not instructions — type the kickoff
+
+Chat interfaces often turn a long paste into an attached file. The chat model
+then reads a summary of that file, sends the image tool a short rewritten
+prompt, and returns one image — or a contact sheet when asked where the others
+went. The fixed copy never reaches the image model, and the render carries
+names and controls that exist nowhere in the prompt. Length is not the cause;
+delivery is. Two fixes, both required:
+
+- **Type the kickoff** as the chat message in the same send as the paste. Never
+  leave it only inside the JSON. It names the count, "one image-generation call
+  per option, in order", "verbatim per_image_prompt" and "no grid".
+- **Make the envelope a dispatcher, not a document.** A compact `constants`
+  block holds the laws; each option's `per_image_prompt` states that its image
+  call is constants + visual + fixed copy + scene, concatenated verbatim.
+
+A grid is a failed call. Keep the one-line reply that makes the model redo it
+as single images in the file header, ready to send.
+
+### 17. Check large batches against the tool's per-response limit
+
+Browser chat image tools cap how many images one response returns (ten, at the
+time of writing). For more, split the work into sets within the limit, one
+envelope per set, with slot numbers that continue across sets.
+
+### 18. "Conceptually different" varies the copy too
+
+When the brief asks for conceptually different options, each option carries its
+own message, copy and positioning, not only its own visuals. The same copy in
+five styles is one concept. Copy the user has locked stays locked; vary only
+what was left open.
+
+### 19. Reconcile every requirement before a revision, then inspect the result
+
+Before rendering a revision, check the accumulated requirements against the
+actual per-image prompts. Keep chosen copy, conditional features and paths that
+already exist in the product, not only the visual rules. Carry positive
+requirements alongside the negatives: "less detail" does not authorise removing
+a feature. The presence of a style guide does not prove its rules reached the
+model.
+
+For component consistency, state inspectable geometry and colour roles, and use
+the same reference across states. After generation, inspect each image against
+those requirements, including conditional coverage across the batch. A required
+component mismatch is a failed check, not a minor variation, even when text and
+count checks pass. Repair within the exact-count contract; if a mismatch
+remains, report it rather than claiming compliance. Keep each prompt linked to
+its result for diagnosis.
 
 ## Lock the systems by name
 
